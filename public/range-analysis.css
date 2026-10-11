@@ -1,0 +1,37 @@
+.range-analysis-panel{display:grid;gap:14px;margin:16px 0;padding:16px;border:1px solid var(--line);background:#151a18}
+.range-analysis-panel h3{margin:0;color:#e8eceb;font-size:16px}
+.range-analysis-panel>div:first-child>p:last-child{margin:7px 0 0;color:var(--muted);font-size:12px}
+.range-analysis-forms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.range-analysis-forms form{display:flex;align-items:end;gap:10px;flex-wrap:wrap;padding:12px;background:#1b211f}
+.range-analysis-forms form>strong{width:100%;font:11px "Space Mono",monospace;color:#e8eceb}
+.range-analysis-forms label{display:grid;gap:5px;color:var(--muted);font-size:11px}
+.range-analysis-forms input{min-height:38px;padding:7px 9px;border:1px solid var(--line);border-radius:3px;background:#111514;color:#e8eceb;font:12px "Space Mono",monospace}
+.range-analysis-forms button:disabled{opacity:.6;cursor:wait}
+.range-analysis-status{margin:0;color:var(--muted);font-size:12px}
+.range-analysis-result{max-height:320px;overflow:auto;margin:0;padding:12px;background:#111514;color:#d4dbd7;font:11px/1.6 "Space Mono",monospace;white-space:pre-wrap}
+.baseline-areas{padding:14px;border:1px solid var(--line);background:linear-gradient(135deg,#1b2420,#141917)}
+.baseline-areas-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.baseline-areas-heading .eyebrow{margin-bottom:5px}
+.baseline-areas-heading h4{margin:0;color:#e8eceb;font-size:14px}
+.baseline-areas-heading>span{color:var(--muted);font:10px "Space Mono",monospace}
+.baseline-area-method{margin:0 0 12px;color:var(--muted);font-size:11px;line-height:1.5}
+.baseline-area-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.baseline-area-card{display:grid;gap:10px;padding:12px;border:1px solid var(--line);background:#111614}
+.baseline-area-card.buy-area{border-top:2px solid var(--green)}
+.baseline-area-card.sell-area{border-top:2px solid #d8766c}
+.baseline-area-side{font:10px "Space Mono",monospace;letter-spacing:.12em;color:var(--green)}
+.sell-area .baseline-area-side{color:#e28a80}
+.baseline-area-price{font-size:21px;letter-spacing:-.03em}
+.baseline-area-status{font:10px "Space Mono",monospace}
+.baseline-area-status.held{color:var(--green)}
+.baseline-area-status.broken{color:#e28a80}
+.baseline-area-status.waiting{color:var(--orange)}
+.baseline-area-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.baseline-area-stats div{display:grid;gap:4px}
+.baseline-area-stats div:last-child{grid-column:1/-1}
+.baseline-area-stats span{color:var(--muted);font:9px "Space Mono",monospace}
+.baseline-area-stats strong{font:12px "Space Mono",monospace;overflow-wrap:anywhere}
+.buy-area .baseline-area-stats div:nth-child(2) strong{color:var(--green)}
+.sell-area .baseline-area-stats div:nth-child(2) strong{color:#e28a80}
+.baseline-area-empty{grid-column:1/-1;margin:0;color:var(--muted);font-size:12px}
+@media(max-width:560px){.range-analysis-forms{grid-template-columns:1fr}.range-analysis-forms form{align-items:stretch}.range-analysis-forms label{flex:1}.range-analysis-forms button{width:100%}}
