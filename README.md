@@ -19,9 +19,9 @@ Create a new Render Blueprint from this repository and use `render.yaml`. Set th
 
 ## Captured data
 
-Price and session OHLC come from the FYERS market feed. Delta, CVD, value-area analysis, and footprint summaries use actual FYERS Order Flow Bid/Ask captures; the dashboard does not estimate buy/sell volume. The volume-profile chart is not displayed.
+Price and session OHLC come from the FYERS market feed. Cumulative volume delta uses actual FYERS Order Flow Bid/Ask captures; the dashboard does not estimate buy/sell volume.
 
-Use **Footprint Range Input** under **Detailed market read** to save a five-minute baseline and compare a pullback by entering IST time ranges. A saved baseline highlights strong buyer and seller price areas using captured footprint volume and delta. Pullback comparison reports in-zone volume/delta and marks an area held or broken only after two completed 5-minute closes beyond its edge. This is a rule-based footprint read, not a guarantee. Baselines are isolated per instrument and browser, and expire after a server restart or 12 hours.
+Use **Footprint Range Input** on the dashboard to save a five-minute baseline and compare a pullback by entering IST time ranges. A saved baseline highlights strong buyer and seller price areas using captured footprint volume and delta. Pullback comparison marks an area held or broken only after two completed 5-minute closes beyond its edge. This is a rule-based footprint read, not a guarantee. Baselines are isolated per instrument and browser, and expire after a server restart or 12 hours.
 
 ## Tests
 

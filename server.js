@@ -394,15 +394,11 @@ function snapshot() {
     const fyers = state.fyersOrderflow;
     const now = Date.now();
     const fyersProfileFresh = Boolean(fyers?.profileUpdatedAt && now - Date.parse(fyers.profileUpdatedAt) < 120000);
-    const fyersFootprintFresh = Boolean(fyers?.footprintUpdatedAt && now - Date.parse(fyers.footprintUpdatedAt) < 120000);
-    const freshFyersTimeframes = Object.fromEntries(Object.entries(fyers?.candles || {})
-      .filter(([timeframe]) => fyersFootprintFresh && fyers?.candleUpdatedAt?.[timeframe] && now - Date.parse(fyers.candleUpdatedAt[timeframe]) < 120000));
     const priorSession = previousSessionFor(key, state.sessionDate);
     const activeMarketSession = isWeekday(indiaDateKey()) && state.sessionDate === indiaDateKey();
     const openingDirection = activeMarketSession
       ? classifyOpening(state.open, priorSession)
       : 'WAITING_FOR_MARKET_SESSION';
-    const fyersFiveMinute = freshFyersTimeframes[5]?.at(-1) || null;
     instruments[key] = {
       symbol,
       contract: activeContracts[key],
@@ -414,14 +410,8 @@ function snapshot() {
       open: state.open,
       high: state.high,
       low: state.low,
-      delta: fyersFiveMinute?.delta ?? null,
-      deltaSource: fyersFiveMinute ? 'FYERS_CHART' : null,
       cvd: fyersProfileFresh ? fyers.cvd : null,
       cvdSource: fyersProfileFresh ? 'FYERS_CHART' : null,
-      flow: freshFyersTimeframes[5]?.length
-        ? freshFyersTimeframes[5].slice(-12).map(({ time, delta }) => ({ time, delta }))
-        : [],
-      flowSource: freshFyersTimeframes[5]?.length ? 'FYERS_CHART' : null,
       openingConviction: {
         direction: openingDirection,
         open: state.open,
